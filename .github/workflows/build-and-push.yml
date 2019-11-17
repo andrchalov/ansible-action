@@ -15,4 +15,4 @@ jobs:
       env:
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
     - name: Push
-      run: docker push docker.pkg.github.com/$GITHUB_REPOSITORY/app:latest
+      run: docker push docker.pkg.github.com/$GITHUB_REPOSITORY/main:latest

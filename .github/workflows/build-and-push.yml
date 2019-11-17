@@ -10,7 +10,7 @@ jobs:
     - name: git status
       run: git status
     - name: Build
-      run: docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/:latest .
+      run: docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/$(git branch 2>/dev/null | grep '^*' | colrm 1 2):latest .
     - name: Login
       run: docker login docker.pkg.github.com --username andrchalov --password $DOCKER_TOKEN
       env:

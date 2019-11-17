@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: get current branch
-      run: export BRANCH=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
     - name: Build
-      run: docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/$BRANCH:latest .
+      run: |
+        export BRANCH=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
+        echo $BRANCH
+        docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/$BRANCH:latest .
     - name: Login
       run: docker login docker.pkg.github.com --username andrchalov --password $DOCKER_TOKEN
       env:

@@ -1,0 +1,7 @@
+# action.yml
+name: "Execute Ansible Playbook"
+author: "Andrey Chalov"
+description: "Executes an Ansible Playbook as Github Action"
+runs:
+  using: 'docker'
+  image: 'docker://docker.pkg.github.com/andrchalov/ansible-action:main:latest'

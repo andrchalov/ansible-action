@@ -9,9 +9,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build
       run: |
-        export BRANCH=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
-        echo $BRANCH
-        docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/$BRANCH:latest .
+        docker build -t docker.pkg.github.com/$GITHUB_REPOSITORY/main:latest .
     - name: Login
       run: docker login docker.pkg.github.com --username andrchalov --password $DOCKER_TOKEN
       env:
